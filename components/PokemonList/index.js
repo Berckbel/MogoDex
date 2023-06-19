@@ -1,4 +1,3 @@
-import { View, Image, Text } from "react-native";
 import { PokemonListItem } from "../PokemonListItem";
 
 export const PokemonList = ({ pokemons }) => {

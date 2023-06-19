@@ -3,7 +3,6 @@ import { View, Image, Text } from "react-native";
 import { styles } from "./styles";
 
 export const PokemonListItem = ({ pokemon }) => {
-  console.log(pokemon.sprite);
 
   return (
     <View>
@@ -11,4 +10,5 @@ export const PokemonListItem = ({ pokemon }) => {
       <Text>{pokemon.name}</Text>
     </View>
   );
+  
 };
