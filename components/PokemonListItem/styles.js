@@ -15,10 +15,12 @@ export const styles = StyleSheet.create({
       marginHorizontal: 5,
       backgroundColor: "white",
       borderRadius: 20,
+      borderColor: "grey",
+      borderWidth: 2,
     },
 
     pokeName: {
-      fontSize: 16,
+      fontSize: 20,
       textTransform: "capitalize",
       fontWeight: "bold",
     }
