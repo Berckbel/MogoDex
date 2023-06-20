@@ -17,6 +17,7 @@ export const Menu = ({ navigation }) => {
       <Text style={styles.title}>MogoDex!!</Text>
       
       {existPokemons && <MenuPokeList pokemons={pokemons} />}
+      {loadingPokemons && <Loader />}
       
       <View style={styles.buttonContainer}>
         <Button title={"Explore"} onPress={() => handleExplore()} />
@@ -24,8 +25,7 @@ export const Menu = ({ navigation }) => {
       <View style={styles.buttonContainer}>
         <Button title={"Search"} />
       </View>
-
-      {loadingPokemons && <Loader />}
+      
     </ScrollView>
   );
 };
