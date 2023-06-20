@@ -2,11 +2,21 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     loader: {
-        minHeight: 400,
-        minWidth: 400,
-        borderRadius: 500,
-        borderWidth: 20,
-        borderTopColor: "red",
-        borderColor: "blue",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: 500,
+    },
+
+    loaderText : {
+        textAlign: "center",
+        textAlignVertical: "center",
+        textTransform: "capitalize",
+        fontWeight: "bold",
+        fontSize: 16,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        borderRadius: 30,
+        backgroundColor: "white",
     }
 });

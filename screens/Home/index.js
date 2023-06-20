@@ -1,20 +1,21 @@
-import { View, ScrollView, Image, Text } from "react-native";
+import { ScrollView } from "react-native";
 
 import { usePokemons } from "../../hooks/usePokemons";
 import { PokemonList } from "../../components/PokemonList";
 import { Loader } from "../../components/Loader";
+import { styles } from "./styles";
 
 export const Home = () => {
     const { pokemons, loadingPokemons } = usePokemons()
 
     return (
-        <ScrollView>
+        <ScrollView style={styles.homeContainer}>
             {
-                loadingPokemons
+                !loadingPokemons
                 ?
-                    <PokemonList pokemons={pokemons} />
+                <PokemonList pokemons={pokemons} />
                 :
-                    <Loader />
+                loadingPokemons&&<Loader />
             }
         </ScrollView>
     )

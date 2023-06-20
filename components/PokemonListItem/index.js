@@ -5,9 +5,9 @@ import { styles } from "./styles";
 export const PokemonListItem = ({ pokemon }) => {
 
   return (
-    <View>
+    <View style={styles.pokeItem}>
       <Image style={styles.pokeImage} source={{ uri: pokemon.sprite }} />
-      <Text>{pokemon.name}</Text>
+      <Text style={styles.pokeName}>{pokemon.name}</Text>
     </View>
   );
   
