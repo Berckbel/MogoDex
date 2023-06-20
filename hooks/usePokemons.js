@@ -16,7 +16,19 @@ export const usePokemons = () => {
                         const newPokemon = {
                             id: res.data.id,
                             name: res.data.name,
-                            sprite: res.data.sprites.front_default
+                            sprite: res.data.sprites.front_default,
+                            abilities: res.data.abilities,
+                            stats: res.data.stats,
+                            sprites: [
+                                res.data.sprites.back_default,
+                                res.data.sprites.back_female,
+                                res.data.sprites.back_shiny,
+                                res.data.sprites.back_shiny_female,
+                                res.data.sprites.front_default,
+                                res.data.sprites.front_female,
+                                res.data.sprites.front_shiny,
+                                res.data.sprites.front_shiny_female,
+                            ],
                         }
                         return newPokemon
                     }).catch(err => setError(err))

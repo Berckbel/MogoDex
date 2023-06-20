@@ -1,14 +1,13 @@
-import { Image, ScrollView, Text } from "react-native";
+import { Image, ScrollView, View, Button } from "react-native";
 import { styles } from "./styles";
+import { PokeCarousel } from "../../components/PokeCarousel";
 
 export const Detail = ({ route, navigation }) => {
+  const pokemon = route.params;
 
-    const pokemon = route.params
-
-    return (
-        <ScrollView>
-            <Image style={styles.pokeImage} source={{ uri: pokemon.sprite }} />
-            <Text>{pokemon.name}</Text>
-        </ScrollView>
-    )
-}
+  return (
+    <ScrollView>
+      <PokeCarousel pokemon={pokemon} />
+    </ScrollView>
+  );
+};

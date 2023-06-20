@@ -2,7 +2,15 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     pokeImage: {
-      width: 400,
-      height: 400,
+      width: 300,
+      height: 300,
     },
+
+    pokeCarousel: {
+      flexDirection: "row",
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginVertical: 10,
+      marginHorizontal: 10,
+    }
 });
