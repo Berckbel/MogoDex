@@ -8,3 +8,14 @@ export const optionsHome = {
       fontWeight: "bold",
     },
 }
+
+export const optionsDetail = {
+  title: "Detail",
+  headerStyle: {
+    backgroundColor: "#FF0000",
+  },
+  headerTintColor: "#fff",
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
+}
