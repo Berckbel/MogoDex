@@ -6,15 +6,14 @@ import { Loader } from "../../components/Loader";
 import { styles } from "./styles";
 
 export const Home = ({ navigation }) => {
-  const { pokemons, loadingPokemons } = usePokemons();
+  const { pokemons, loadingPokemons, existPokemons } = usePokemons();
 
   return (
     <ScrollView style={styles.homeContainer}>
-      {!loadingPokemons ? (
+      {existPokemons && (
         <PokemonList pokemons={pokemons} navigation={navigation} />
-      ) : (
-        loadingPokemons && <Loader />
       )}
+      {loadingPokemons && <Loader />}
     </ScrollView>
   );
 };

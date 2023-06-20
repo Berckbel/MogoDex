@@ -37,6 +37,7 @@ export const usePokemons = () => {
     return {
         pokemons: pokemons,
         loadingPokemons: loading,
-        errorPokemons: error
+        errorPokemons: error,
+        existPokemons: Boolean(pokemons.length)
     }
 }

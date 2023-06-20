@@ -1,3 +1,14 @@
+export const optionsMenu = {
+  title: "Menu",
+  headerStyle: {
+    backgroundColor: "#FF0000",
+  },
+  headerTintColor: "#fff",
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
+}
+
 export const optionsHome = {
     title: "Home",
     headerStyle: {
