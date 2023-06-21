@@ -2,11 +2,11 @@ import { Button, ScrollView, Text, View } from "react-native";
 import { styles } from "./styles";
 
 import { Loader } from "../../components/Loader";
-import { usePokemons } from "../../hooks/usePokemons";
+import { useMenuPokemons } from "../../hooks/useMenuPokemons";
 import { MenuPokeList } from "../../components/MenuPokeList";
 
 export const Menu = ({ navigation }) => {
-  const { pokemons, loadingPokemons, existPokemons } = usePokemons();
+  const { pokemons, loadingPokemons, existPokemons } = useMenuPokemons();
 
   const handleExplore = () => {
     navigation.navigate("Home");
