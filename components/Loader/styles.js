@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: 200,
+        minHeight: 100,
     },
 
     loaderText : {
