@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
         alignContent: "center",
         alignItems: "center",
         justifyContent: "space-around",
-        backgroundColor: "red",
+        backgroundColor: "#FF0000",
     },
 
     headerCell: {
@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         fontWeight: "bold",
         fontSize: 20,
-        backgroundColor: "blue",
+        backgroundColor: "#2196F3",
         color: "white",
         textTransform: "capitalize",
     },

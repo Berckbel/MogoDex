@@ -23,5 +23,9 @@ export const styles = StyleSheet.create({
       fontSize: 20,
       textTransform: "capitalize",
       fontWeight: "bold",
+      color: "white",
+      paddingHorizontal: 10,
+      borderRadius: 10,
+      backgroundColor: "#2196F3",
     }
 });
