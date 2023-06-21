@@ -16,8 +16,8 @@ export const Menu = ({ navigation }) => {
     <ScrollView>
       <Text style={styles.title}>MogoDex!!</Text>
       
-      {existPokemons && <MenuPokeList pokemons={pokemons} />}
-      {loadingPokemons && <Loader />}
+      {!existPokemons && <MenuPokeList pokemons={pokemons} />}
+      {!loadingPokemons && <Loader />}
       
       <View style={styles.buttonContainer}>
         <Button title={"Explore"} onPress={() => handleExplore()} />
