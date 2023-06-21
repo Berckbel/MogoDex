@@ -5,57 +5,46 @@ import { useState } from "react";
 export const PokeCarousel = ({ pokemon }) => {
   const [image, setImage] = useState({
     sprite: pokemon.sprite,
-    position: pokemon.sprites.length / 2,
+    position: Math.round(pokemon.sprites.length / 2),
   });
 
   const handleRight = () => {
+
     const len = pokemon.sprites.length;
+    let rightPos = image.position == (len - 1) ? 0 : image.position + 1;
 
-    let pos = image.position;
-    pos++
-    if (pos > len - 1) pos = 0;
+    let sprite = pokemon.sprites[rightPos];
 
-    let sprite = pokemon.sprites[pos];
-
-    if(!sprite) pos++;
     while (!sprite) {
-      sprite = pokemon.sprites[pos];
-      pos++
-
-      if (pos > len - 1) pos = 0;
+      rightPos == (len - 1) ? rightPos = 0 : rightPos += 1;
+      sprite = pokemon.sprites[rightPos];
     }
 
-    console.log({ pos, sprite, len });
-
-    setImage({
-      sprite: sprite,
-      position: pos,
+    setImage(() => {
+      return {
+        sprite: sprite,
+        position: rightPos,
+      }
     });
   };
 
   const handleLeft = () => {
+
     const len = pokemon.sprites.length;
+    let leftPos = image.position == 0 ? (len - 1) : image.position - 1;
 
-    let pos = image.position;
-    pos--
-    
-    if (pos < 0) pos = len - 1;
+    let sprite = pokemon.sprites[leftPos];
 
-    let sprite = pokemon.sprites[pos];
-
-    if(!sprite) pos--
     while (!sprite) {
-      sprite = pokemon.sprites[pos];
-      pos--
-
-      if (pos < 0) pos = len - 1;
+      leftPos == 0 ? leftPos = (len - 1) : leftPos -= 1;
+      sprite = pokemon.sprites[leftPos];
     }
 
-    console.log({ pos, sprite, len });
-
-    setImage({
-      sprite: sprite,
-      position: pos,
+    setImage(() => {
+      return {
+        sprite: sprite,
+        position: leftPos,
+      }
     });
   };
 
