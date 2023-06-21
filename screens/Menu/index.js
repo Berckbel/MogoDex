@@ -9,23 +9,24 @@ export const Menu = ({ navigation }) => {
   const { pokemons, loadingPokemons, existPokemons } = usePokemons();
 
   const handleExplore = () => {
-    navigation.navigate('Home')
-  }
+    navigation.navigate("Home");
+  };
 
   return (
     <ScrollView>
       <Text style={styles.title}>MogoDex!!</Text>
-      
-      {existPokemons && <MenuPokeList pokemons={pokemons} />}
+
+      {existPokemons && !loadingPokemons && (
+        <MenuPokeList pokemons={pokemons} />
+      )}
       {loadingPokemons && <Loader />}
-      
+
       <View style={styles.buttonContainer}>
         <Button title={"Explore"} onPress={() => handleExplore()} />
       </View>
       <View style={styles.buttonContainer}>
         <Button title={"Search"} />
       </View>
-      
     </ScrollView>
   );
 };
