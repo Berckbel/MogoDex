@@ -1,16 +1,24 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getPokemons } from "../services/getPokemons"
 import { getPokemon } from "../services/getPokemon";
+import { usePokeContext } from "./usePokeContext";
 
 export const usePokemons = () => {
     const [pokemons, setPokemons] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null);
+    const [next, setNext] = useState(null)
+
+    const { pokeContext, setPokeContext } = usePokeContext()
 
     useEffect(() => {
         setLoading(true)
-        getPokemons()
+        getPokemons(next)
             .then(res => {
+                setPokeContext({
+                    ...pokeContext,
+                    next: res.data.next,
+                })
                 const promises = res.data.results.map(pokemon => {
                     return getPokemon(pokemon.url).then(res => {
                         const newPokemon = {
@@ -36,7 +44,10 @@ export const usePokemons = () => {
 
                 Promise.all(promises)
                     .then(data => {
-                        setPokemons(data)
+                        setPokemons(() => {
+                            const newPokemons = pokemons.concat(data)
+                            return newPokemons
+                        })
                     })
                     .catch(err => setError(err))
             })
@@ -44,12 +55,19 @@ export const usePokemons = () => {
                 setError(err)
             })
             .finally(() => setLoading(false))
-    }, [])
+    }, [next])
+
+    const handleNextPokemons = useCallback(() => {
+        setTimeout(() => {
+            setNext(pokeContext.next)
+        }, 100);
+    })
 
     return {
         pokemons: pokemons,
         loadingPokemons: loading,
         errorPokemons: error,
-        existPokemons: Boolean(pokemons.length)
+        existPokemons: pokemons.length > 0,
+        handleNextPokemons
     }
 }

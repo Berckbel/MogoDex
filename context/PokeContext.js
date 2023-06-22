@@ -3,7 +3,8 @@ import { useState, createContext } from "react";
 const Context = createContext({})
 
 const initialState = {
-    'menuPokemons': []
+    'menuPokemons': [],
+    'next': null
 }
 
 export const PokeContextProvider = ({ children }) => {

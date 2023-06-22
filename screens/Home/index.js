@@ -1,18 +1,33 @@
-import { ScrollView } from "react-native";
-
+import { FlatList, View } from "react-native";
 import { usePokemons } from "../../hooks/usePokemons";
-import { PokemonList } from "../../components/PokemonList";
 import { Loader } from "../../components/Loader";
+import { PokemonListItem } from "../../components/PokemonListItem";
 
 export const Home = ({ navigation }) => {
-  const { pokemons, loadingPokemons, existPokemons } = usePokemons();
+  const { pokemons, existPokemons, handleNextPokemons } = usePokemons();
+
+  const renderPokemon = ({ item }) => (
+    <PokemonListItem key={item.id} pokemon={item} navigation={navigation} />
+  );
+
+  const renderLoader = () => (
+    <Loader />
+  )
+
+  const keyExtractor = (item) => item.id;
 
   return (
-    <ScrollView>
+    <View>
       {existPokemons && (
-        <PokemonList pokemons={pokemons} navigation={navigation} />
+        <FlatList
+          data={pokemons}
+          renderItem={renderPokemon}
+          keyExtractor={keyExtractor}
+          ListFooterComponent={renderLoader}
+          onEndReached={handleNextPokemons}
+          onEndReachedThreshold={0}
+        />
       )}
-      {loadingPokemons && <Loader />}
-    </ScrollView>
+    </View>
   );
 };
