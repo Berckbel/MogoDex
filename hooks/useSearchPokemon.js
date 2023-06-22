@@ -35,7 +35,12 @@ export const useSearchPokemon = () => {
         navigation.navigate('Detail', newPokemon)
       })
       .catch((err) => setError(err))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false)
+        setTimeout(() => {
+          setError(null);
+        }, 2000);
+      });
   });
 
   return {
