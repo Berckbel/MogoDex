@@ -12,6 +12,10 @@ export const Menu = ({ navigation }) => {
     navigation.navigate("Home");
   };
 
+  const handleSearch = () => {
+    navigation.navigate("Search");
+  };
+
   return (
     <ScrollView>
       <View style={styles.titleContainer}>
@@ -27,7 +31,7 @@ export const Menu = ({ navigation }) => {
         <Button title={"Explore"} onPress={() => handleExplore()} />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title={"Search"} />
+        <Button title={"Search"} onPress={() => handleSearch()} />
       </View>
     </ScrollView>
   );

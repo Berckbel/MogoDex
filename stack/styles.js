@@ -30,3 +30,14 @@ export const optionsDetail = {
     fontWeight: "bold",
   },
 }
+
+export const optionsSearch = {
+  title: "Search",
+  headerStyle: {
+    backgroundColor: "#FF0000",
+  },
+  headerTintColor: "#fff",
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
+}

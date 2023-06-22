@@ -3,23 +3,23 @@ import { getPokemons } from "../services/getPokemons"
 import { getPokemon } from "../services/getPokemon";
 import { usePokeContext } from "./usePokeContext";
 
-const API_URL = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=12";
+const API_URL = "https://pokeapi.co/api/v2/pokemon?offset=60&limit=8";
 
-export const useMenuPokemons = () => {
+export const useSearchMenuPokemon = () => {
 
     const { pokeContext, setPokeContext } = usePokeContext()
 
     const [pokemons, setPokemons] = useState(() => {
-        const menuPokemons = pokeContext.menuPokemons
-        return menuPokemons.length > 0 ? menuPokemons : []
+        const menuSearchPokemons = pokeContext.menuSearchPokemons
+        return menuSearchPokemons.length > 0 ? menuSearchPokemons : []
     })
 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const menuPokemons = pokeContext.menuPokemons
-        if(menuPokemons.length > 0) return
+        const menuSearchPokemons = pokeContext.menuSearchPokemons
+        if(menuSearchPokemons.length > 0) return
         setLoading(true)
         getPokemons(API_URL)
             .then(res => {
@@ -39,8 +39,8 @@ export const useMenuPokemons = () => {
                         setPokemons(data)
                         setPokeContext({ 
                             ...pokeContext,
-                            menuPokemons: data
-                        })
+                            menuSearchPokemons: data
+                         })
                     })
                     .catch(err => setError(err))
             })

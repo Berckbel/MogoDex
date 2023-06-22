@@ -4,7 +4,8 @@ const Context = createContext({})
 
 const initialState = {
     'menuPokemons': [],
-    'next': null
+    'next': null,
+    'menuSearchPokemons': [],
 }
 
 export const PokeContextProvider = ({ children }) => {
