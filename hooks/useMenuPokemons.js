@@ -3,7 +3,7 @@ import { getPokemons } from "../services/getPokemons"
 import { getPokemon } from "../services/getPokemon";
 import { usePokeContext } from "./usePokeContext";
 
-const API_URL = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=12";
+const API_URL = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=16";
 
 export const useMenuPokemons = () => {
 

@@ -1,6 +1,11 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+
+    detailContainer: {
+      marginVertical: 20,
+    },
+
     pokeImage: {
       width: 300,
       height: 300,

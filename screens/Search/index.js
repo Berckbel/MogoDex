@@ -24,38 +24,40 @@ export const Search = ({ navigation }) => {
 
   return (
     <ScrollView>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>PokeSearch</Text>
-      </View>
+      <View style={styles.searchContainer}> 
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>PokeSearch</Text>
+        </View>
 
-      {existPokemons && !loadingPokemons && (
-        <MenuPokeList pokemons={pokemons} />
-      )}
-      {loadingPokemons && <Loader />}
-
-      <View style={styles.inputContainer}>
-        {queryError && <Text style={styles.feedMessage}>{queryError}</Text>}
-        {searchLoading && (
-          <Text style={styles.feedMessage}>{"loading..."}</Text>
+        {existPokemons && !loadingPokemons && (
+          <MenuPokeList pokemons={pokemons} />
         )}
-        {searchError && <Text style={styles.feedMessage}>{"not found"}</Text>}
-        <TextInput
-          style={styles.inputText}
-          placeholder={"Name Here..."}
-          value={query}
-          onChangeText={handleQuery}
-          editable={!searchLoading}
-          autoCorrect={true}
-          maxLength={14}
-        />
-      </View>
+        {loadingPokemons && <Loader />}
 
-      <View style={styles.buttonContainer}>
-        <Button
-          title={"Search"}
-          disabled={searchLoading || Boolean(queryError)}
-          onPress={handleSubmit}
-        />
+        <View style={styles.inputContainer}>
+          {queryError && <Text style={styles.feedMessage}>{queryError}</Text>}
+          {searchLoading && (
+            <Text style={styles.feedMessage}>{"loading..."}</Text>
+          )}
+          {searchError && <Text style={styles.feedMessage}>{"not found"}</Text>}
+          <TextInput
+            style={styles.inputText}
+            placeholder={"Name Here..."}
+            value={query}
+            onChangeText={handleQuery}
+            editable={!searchLoading}
+            autoCorrect={true}
+            maxLength={14}
+          />
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <Button
+            title={"Search"}
+            disabled={searchLoading || Boolean(queryError)}
+            onPress={handleSubmit}
+          />
+        </View>
       </View>
     </ScrollView>
   );

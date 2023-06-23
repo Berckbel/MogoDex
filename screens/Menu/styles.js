@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
+  menuContainer: {
+    marginVertical: 20,
+  },
+
   titleContainer: {
     flexDirection: "column",
     justifyContent: "center",

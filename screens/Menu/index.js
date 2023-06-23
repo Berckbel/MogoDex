@@ -16,22 +16,31 @@ export const Menu = ({ navigation }) => {
     navigation.navigate("Search");
   };
 
+  const handleWho = () => {
+    navigation.navigate("Who");
+  };
+
   return (
     <ScrollView>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>MogoDex!!</Text>
-      </View>
+      <View style={styles.menuContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>MogoDex!!</Text>
+        </View>
 
-      {existPokemons && !loadingPokemons && (
-        <MenuPokeList pokemons={pokemons} />
-      )}
-      {loadingPokemons && <Loader />}
+        {existPokemons && !loadingPokemons && (
+          <MenuPokeList pokemons={pokemons} />
+        )}
+        {loadingPokemons && <Loader />}
 
-      <View style={styles.buttonContainer}>
-        <Button title={"Explore"} onPress={() => handleExplore()} />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button title={"Search"} onPress={() => handleSearch()} />
+        <View style={styles.buttonContainer}>
+          <Button title={"Explore"} onPress={() => handleExplore()} />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button title={"Search"} onPress={() => handleSearch()} />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button title={"Who"} onPress={() => handleWho()} />
+        </View>
       </View>
     </ScrollView>
   );

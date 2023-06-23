@@ -1,29 +1,15 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-
-  searchContainer: {
-    marginVertical: 20,
+  whoContainer: {
+    marginVertical: 10,
   },
 
-  titleContainer: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignContent: "center",
-    paddingVertical: 10,
-  },
-
-  title: {
-    textAlign: "center",
-    alignContent: "center",
-    alignSelf: "center",
-    fontWeight: "bold",
-    fontSize: 50,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 45,
-    color: "white",
-    backgroundColor: "#2196F3",
+  pokeImage: {
+    width: 300,
+    height: 300,
+    marginHorizontal: 50,
+    backgroundColor: 'transparent'
   },
 
   buttonContainer: {
@@ -39,7 +25,7 @@ export const styles = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
   },
-
+  
   feedMessage: {
     alignSelf: "flex-end",
     paddingHorizontal: 10,
@@ -58,7 +44,5 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     borderBottomColor: "red",
     borderBottomWidth: 5,
-
   },
-  
 });

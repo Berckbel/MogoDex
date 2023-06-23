@@ -41,3 +41,14 @@ export const optionsSearch = {
     fontWeight: "bold",
   },
 }
+
+export const optionsWho = {
+  title: "Who",
+  headerStyle: {
+    backgroundColor: "#FF0000",
+  },
+  headerTintColor: "#fff",
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
+}
