@@ -1,19 +1,27 @@
 import { useCallback, useEffect, useState } from "react";
 import { getRandomId } from "../helpers";
 import { getPokemon } from "../services/getPokemon";
+import { usePokeContext } from "./usePokeContext";
 
 const API_URL = "https://pokeapi.co/api/v2/pokemon";
 
 export const useWhoPokemon = () => {
+  const { pokeContext, setPokeContext } = usePokeContext();
+
   const [pokemon, setPokemon] = useState({});
-  const [score, setScore] = useState(0);
+
+  const [score, setScore] = useState(() => {
+    const initialScore = { points: pokeContext.score, renderAux: true };
+    return initialScore;
+  });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [who, setWho] = useState({ visible: false, correct: false });
 
   useEffect(() => {
     setLoading(true);
-    const randomId = getRandomId(1, 20);
+    const randomId = getRandomId(1, pokeContext.dificulty);
     const url = `${API_URL}/${randomId}`;
     getPokemon(url)
       .then((res) => {
@@ -30,11 +38,26 @@ export const useWhoPokemon = () => {
 
   const guessPokemon = useCallback(({ query, name }) => {
     query = query.trim().toLowerCase();
-    setVisible(true);
+    const correct = query === name;
 
-    if (query === name) {
-      setScore(score + 1);
-    }
+    setWho({ visible: true, correct });
+    setTimeout(() => {
+      setWho({ visible: false, correct });
+
+      const newScore = {
+        points: correct ? score.points + 1 : score.points,
+        renderAux: !score.renderAux,
+      };
+
+      setPokeContext({
+        ...pokeContext,
+        score: newScore.points
+      })
+
+      setScore(() => {
+        return newScore;
+      });
+    }, 3000);
   });
 
   return {
@@ -42,7 +65,8 @@ export const useWhoPokemon = () => {
     loading,
     error,
     guessPokemon,
-    score,
-    visible,
+    score: score.points,
+    who,
+    dificultySelected: pokeContext.dificultySelected,
   };
 };

@@ -6,6 +6,14 @@ const initialState = {
     'menuPokemons': [],
     'next': null,
     'menuSearchPokemons': [],
+    'score': 0,
+    'dificulty': 50,
+    'dificultySelected': false,
+    'dificultyOptions': {
+      easy: 50,
+      normal: 100,
+      hard: 1000
+    }
 }
 
 export const PokeContextProvider = ({ children }) => {

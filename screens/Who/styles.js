@@ -9,7 +9,13 @@ export const styles = StyleSheet.create({
     width: 300,
     height: 300,
     marginHorizontal: 50,
-    backgroundColor: 'transparent'
+  },
+
+  pokeImageWho: {
+    width: 300,
+    height: 300,
+    marginHorizontal: 50,
+    tintColor: "black",
   },
 
   buttonContainer: {
