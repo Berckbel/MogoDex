@@ -3,7 +3,7 @@
 
 ![](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png)
 
-####Comandos
+#### Comandos
                 
 1. npm i
 2. npx expo start
@@ -11,7 +11,7 @@
                 
 ----
                     
-###Contenido
+### Contenido
                     
 
 | Screen| Description
